@@ -1,0 +1,61 @@
+[
+  {
+    "id": "battery",
+    "title": "電池技術",
+    "icon": "battery-charging",
+    "color": "badge-battery",
+    "accentColor": "#1b3a6b",
+    "bgColor": "#e3f0fb",
+    "units": 8,
+    "status": "規劃中",
+    "description": "從材料設計到全電池組裝，系統性掌握新世代固態電池的核心知識。",
+    "topics": [
+      "鋰/鈉離子電池基礎原理",
+      "固態電解質材料分類與合成",
+      "鋰金屬負極介面工程",
+      "無陽極架構設計",
+      "正極材料（NMC、LFP、硫正極）",
+      "電化學阻抗分析（EIS）",
+      "全電池組裝與測試",
+      "電池安全與熱管理"
+    ]
+  },
+  {
+    "id": "membrane",
+    "title": "薄膜工程",
+    "icon": "layers",
+    "color": "badge-membrane",
+    "accentColor": "#1a6640",
+    "bgColor": "#e8f8f0",
+    "units": 6,
+    "status": "規劃中",
+    "description": "探索奈米薄膜的製程技術與離子傳輸機制，涵蓋能源、海水淡化與生醫應用。",
+    "topics": [
+      "薄膜材料基礎（聚合物/無機/複合）",
+      "靜電紡絲技術（PAA、PI）",
+      "奈米流體與離子選擇性傳輸",
+      "海水淡化薄膜設計",
+      "壓電薄膜與能量收集",
+      "MOF/COF 基礎薄膜"
+    ]
+  },
+  {
+    "id": "hydrogen",
+    "title": "氫能系統",
+    "icon": "zap",
+    "color": "badge-hydrogen",
+    "accentColor": "#8a5a00",
+    "bgColor": "#fdf3e3",
+    "units": 6,
+    "status": "規劃中",
+    "description": "解析氫能產製、儲存到轉換的完整技術鏈，掌握清潔能源轉型的關鍵技術。",
+    "topics": [
+      "氫能概論與能源政策",
+      "析氫反應（HER）電催化劑設計",
+      "析氧反應（OER）機制分析",
+      "CO₂ 還原電催化",
+      "燃料電池電極材料",
+      "氫能儲存技術"
+    ]
+  }
+]

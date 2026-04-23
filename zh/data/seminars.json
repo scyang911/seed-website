@@ -1,0 +1,74 @@
+[
+  {
+    "id": "sem001",
+    "title": "固態電解質材料設計與合成策略",
+    "speaker": "楊盛强 博士（台科大 SEED 中心）",
+    "date": "2026-03-13",
+    "duration": "45 分鐘",
+    "track": "battery",
+    "trackLabel": "電池技術",
+    "thumbnail": "",
+    "videoUrl": "",
+    "description": "介紹鋰/鈉金屬鹵化物與硫化物固態電解質的合成路徑，以及電化學特性量測方法。"
+  },
+  {
+    "id": "sem002",
+    "title": "靜電紡絲技術於電池隔膜的應用",
+    "speaker": "SEED 中心研究團隊",
+    "date": "2026-02-24",
+    "duration": "40 分鐘",
+    "track": "membrane",
+    "trackLabel": "薄膜工程",
+    "thumbnail": "",
+    "videoUrl": "",
+    "description": "以 PAA、PI 為基材的靜電紡絲隔膜製程，探討其熱穩定性與離子傳導特性。"
+  },
+  {
+    "id": "sem003",
+    "title": "水分解電催化劑的設計原則",
+    "speaker": "SEED 中心氫能團隊",
+    "date": "2026-02-04",
+    "duration": "50 分鐘",
+    "track": "hydrogen",
+    "trackLabel": "氫能系統",
+    "thumbnail": "",
+    "videoUrl": "",
+    "description": "從理論計算到實驗驗證，解析高效析氫與析氧催化劑的結構-活性關係。"
+  },
+  {
+    "id": "sem004",
+    "title": "無陽極鋰金屬電池：機會與挑戰",
+    "speaker": "SEED 中心電池團隊",
+    "date": "2025-12-15",
+    "duration": "45 分鐘",
+    "track": "battery",
+    "trackLabel": "電池技術",
+    "thumbnail": "",
+    "videoUrl": "",
+    "description": "探討 Anode-free 架構的能量密度優勢、庫倫效率挑戰，以及最新解決方案。"
+  },
+  {
+    "id": "sem005",
+    "title": "MOF/COF 基礎奈米流體薄膜的離子傳輸",
+    "speaker": "SEED 中心薄膜團隊",
+    "date": "2025-11-20",
+    "duration": "42 分鐘",
+    "track": "membrane",
+    "trackLabel": "薄膜工程",
+    "thumbnail": "",
+    "videoUrl": "",
+    "description": "介紹金屬有機框架（MOF）與共價有機框架（COF）在選擇性離子傳輸薄膜的最新進展。"
+  },
+  {
+    "id": "sem006",
+    "title": "CO₂ 還原電催化：從實驗室到應用",
+    "speaker": "SEED 中心研究團隊",
+    "date": "2025-10-30",
+    "duration": "48 分鐘",
+    "track": "hydrogen",
+    "trackLabel": "氫能系統",
+    "thumbnail": "",
+    "videoUrl": "",
+    "description": "探討電化學 CO₂ 還原反應的選擇性控制策略，以及未來碳中和應用的可行性。"
+  }
+]

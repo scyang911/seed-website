@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEED 雲學院 — 台科大永續電化學能源發展中心</title>
+<meta name="description" content="台科大 SEED 中心知識平台。電池技術、薄膜工程、氫能系統——由頂尖研究人員帶你深入電化學能源的核心。">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  /* ── 中文字型強化 ── */
+  body { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', system-ui, sans-serif; }
+
+  /* ── Academy 入口橫幅 ── */
+  .academy-banner {
+    background: linear-gradient(135deg, #00a896 0%, #007a6e 100%);
+    color: #fff; padding: 14px 0; text-align: center; font-size: .92rem;
+  }
+  .academy-banner a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ── Hero 中文調整 ── */
+  .hero-badge {
+    display: inline-block; background: rgba(0,168,150,.25); color: #7ef0e6;
+    font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+    padding: 4px 14px; border-radius: 20px; margin-bottom: 1rem;
+    border: 1px solid rgba(0,168,150,.4);
+  }
+  .hero h1 { font-size: 2.4rem; font-weight: 800; }
+  .hero h1 span { color: var(--teal); }
+  .hero .lead { font-size: 1.05rem; line-height: 1.8; }
+
+  /* ── 三大主軸卡片（雲學院入口版） ── */
+  .track-card {
+    border: none; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 3px 16px rgba(0,0,0,.08); height: 100%;
+    transition: transform .22s, box-shadow .22s;
+  }
+  .track-card:hover { transform: translateY(-5px); box-shadow: 0 8px 28px rgba(0,0,0,.14); }
+  .track-card .track-header { padding: 1.6rem 1.4rem 1rem; }
+  .track-card .track-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: .9rem;
+  }
+  .track-card h5 { font-weight: 700; font-size: 1.05rem; margin-bottom: .4rem; }
+  .track-card .track-body { padding: .2rem 1.4rem 1.4rem; }
+  .track-card .unit-count { font-size: .78rem; color: var(--gray); margin-bottom: .7rem; }
+  .topic-pill {
+    display: inline-block; font-size: .72rem; padding: 2px 10px;
+    border-radius: 20px; margin: 2px 3px 2px 0;
+    background: #f0f4f8; color: #555;
+  }
+
+  /* ── 演講卡片 ── */
+  .seminar-card {
+    border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    height: 100%; transition: transform .2s;
+  }
+  .seminar-card:hover { transform: translateY(-3px); }
+  .seminar-thumb {
+    background: linear-gradient(135deg, var(--navy), #0a4a6e);
+    height: 140px; display: flex; align-items: center; justify-content: center;
+    border-radius: 10px 10px 0 0; position: relative;
+  }
+  .seminar-thumb .play-btn {
+    width: 50px; height: 50px; background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.6); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; color: #fff; backdrop-filter: blur(4px);
+    transition: background .2s;
+  }
+  .seminar-card:hover .play-btn { background: rgba(0,168,150,.6); border-color: var(--teal); }
+  .seminar-thumb .track-label-badge {
+    position: absolute; top: 10px; left: 12px;
+    font-size: .7rem; padding: 2px 9px; border-radius: 3px; font-weight: 500;
+  }
+  .seminar-card .card-body { padding: 1rem 1.1rem; }
+  .seminar-card .card-title { font-size: .9rem; font-weight: 600; color: var(--navy); line-height: 1.4; margin-bottom: .4rem; }
+  .seminar-card .speaker { font-size: .78rem; color: var(--gray); }
+  .seminar-card .meta { font-size: .75rem; color: var(--gray); margin-top: .5rem; }
+
+  /* ── 消息列 ── */
+  .news-tag-zh { font-size: .7rem; background: var(--teal); color: #fff; border-radius: 3px; padding: 1px 7px; margin-right: .5rem; }
+
+  /* ── 頁腳 ── */
+  .footer-academy-link { color: var(--teal) !important; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ── 頂部雲學院入口橫幅 ── -->
+<div class="academy-banner">
+  ✨ SEED 雲學院現已開放！<a href="academy/index.html">立即探索課程 →</a>
+</div>
+
+<!-- ── 導覽列 ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="../assets/images/logo.png" alt="SEED Center">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">首頁</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">關於中心</a></li>
+        <li class="nav-item"><a class="nav-link" href="members.html">成員</a></li>
+        <li class="nav-item"><a class="nav-link" href="research.html">研究成果</a></li>
+        <li class="nav-item"><a class="nav-link" href="international.html">國際合作</a></li>
+        <li class="nav-item"><a class="nav-link" href="academy/index.html" style="color:var(--teal) !important; font-weight:600;">☁ 雲學院</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
+        <li class="nav-item">
+          <a class="nav-link lang-btn" href="../index.html">EN</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-badge">台科大 SEED 中心</div>
+        <h1>電化學能源的<br><span>知識起點</span></h1>
+        <p class="subtitle">永續電化學能源發展中心 × 線上知識平台</p>
+        <p class="lead">深入電池技術、薄膜工程、氫能系統的研究核心。<br>由頂尖研究人員帶你掌握下一代清潔能源的關鍵技術。</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="academy/index.html" class="btn btn-teal px-4">開始學習</a>
+          <a href="about.html" class="btn btn-outline-light px-4">認識中心</a>
+        </div>
+      </div>
+    </div>
+    <!-- KPI -->
+    <div class="kpi-row row g-0 mt-5">
+      <div class="col-6 col-md-3 kpi-box">
+        <div class="num">200+</div>
+        <div class="label">學術論文</div>
+      </div>
+      <div class="col-6 col-md-3 kpi-box">
+        <div class="num">30+</div>
+        <div class="label">教師與研究員</div>
+      </div>
+      <div class="col-6 col-md-3 kpi-box">
+        <div class="num">15+</div>
+        <div class="label">國際合作夥伴</div>
+      </div>
+      <div class="col-6 col-md-3 kpi-box">
+        <div class="num">50+</div>
+        <div class="label">專利</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 三大課程主軸 ── -->
+<section class="py-5 bg-light-custom">
+  <div class="container">
+    <h2 class="section-title">雲學院課程主軸</h2>
+    <div class="section-line"></div>
+    <p class="text-muted mb-4">從基礎理論到前沿研究，三條完整的學習路徑等你探索。</p>
+    <div id="track-cards" class="row g-4">
+      <!-- 由 JS 從 courses.json 渲染 -->
+    </div>
+    <div class="text-center mt-4">
+      <a href="academy/index.html" class="btn btn-outline-navy px-4">查看全部課程 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 最新演講影片 ── -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-end mb-3">
+      <div class="col">
+        <h2 class="section-title">最新演講精華</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="col-auto">
+        <a href="academy/index.html#seminars" class="btn btn-sm btn-outline-navy">全部影片 →</a>
+      </div>
+    </div>
+    <div id="seminar-cards" class="row g-4">
+      <!-- 由 JS 從 seminars.json 渲染（前 3 筆）-->
+    </div>
+  </div>
+</section>
+
+<!-- ── 最新消息 ── -->
+<section class="py-5 bg-light-custom">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="section-title">最新消息</h2>
+        <div class="section-line"></div>
+        <div id="news-list">
+          <!-- 由 JS 從 news.json 渲染 -->
+        </div>
+        <div class="mt-3">
+          <a href="https://seed.ntust.edu.tw" target="_blank" class="btn btn-sm btn-outline-navy">更多消息 →</a>
+        </div>
+      </div>
+      <div class="col-lg-4 mt-5 mt-lg-0">
+        <h2 class="section-title">近期活動</h2>
+        <div class="section-line"></div>
+        <div class="card border-0 shadow-sm p-3 mb-3">
+          <div class="text-teal fw-bold small">SEED 演講系列</div>
+          <div class="fw-semibold mt-1">國際學者訪問演講</div>
+          <div class="text-muted small mt-1">定期邀請全球頂尖研究機構學者，分享最新研究成果。</div>
+        </div>
+        <div class="card border-0 shadow-sm p-3">
+          <div class="text-teal fw-bold small">年度盛事</div>
+          <div class="fw-semibold mt-1">SEED Symposium</div>
+          <div class="text-muted small mt-1">年度研討會，展示中心研究亮點並促進跨領域合作。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 主任引言 ── -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div style="font-size:2.5rem; color:var(--teal);">"</div>
+        <p class="fs-5 text-navy fw-light fst-italic px-3">「SEED 中心致力於橋接電化學基礎科學與真實世界的能源應用，透過跨領域、跨國界的合作，共同建構永續能源的未來。」</p>
+        <div class="mt-3 fw-semibold text-navy">黃炳照 教授</div>
+        <div class="text-muted small">中心主任 · 台科大 特聘教授</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 頁腳 ── -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <img src="../assets/images/logo.png" alt="SEED" style="height:40px; filter:brightness(0) invert(1); opacity:.85;" class="mb-3">
+        <p>永續電化學能源發展中心<br>國立臺灣科技大學</p>
+      </div>
+      <div class="col-md-4">
+        <h6>快速連結</h6>
+        <ul class="list-unstyled">
+          <li><a href="about.html">關於中心</a></li>
+          <li><a href="members.html">中心成員</a></li>
+          <li><a href="research.html">研究成果與論文</a></li>
+          <li><a href="international.html">國際合作</a></li>
+          <li><a href="academy/index.html" class="footer-academy-link">☁ SEED 雲學院</a></li>
+          <li><a href="../index.html">English Version</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>聯絡資訊</h6>
+        <p>台北市大安區基隆路四段 43 號 IB-R606</p>
+        <p>電話：+886-2-2733-3141 分機 6800</p>
+        <p><a href="mailto:seed@mail.ntust.edu.tw">seed@mail.ntust.edu.tw</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      © 2026 SEED 中心，國立臺灣科技大學。保留所有權利。
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const trackColors = {
+  battery:  { icon: '🔋', bg: '#e3f0fb', accent: '#1b3a6b' },
+  membrane: { icon: '🧪', bg: '#e8f8f0', accent: '#1a6640' },
+  hydrogen: { icon: '⚡', bg: '#fdf3e3', accent: '#8a5a00' }
+};
+
+async function renderTracks() {
+  const res = await fetch('data/courses.json');
+  const courses = await res.json();
+  const container = document.getElementById('track-cards');
+  container.innerHTML = courses.map(c => {
+    const tc = trackColors[c.id] || { icon: '📚', bg: '#f0f4f8', accent: '#333' };
+    const topics = c.topics.slice(0, 4).map(t => `<span class="topic-pill">${t}</span>`).join('');
+    return `
+    <div class="col-md-4">
+      <div class="track-card">
+        <div class="track-header">
+          <div class="track-icon" style="background:${tc.bg};">${tc.icon}</div>
+          <h5 style="color:${tc.accent};">${c.title}</h5>
+          <p class="text-muted small mb-0">${c.description}</p>
+        </div>
+        <div class="track-body">
+          <div class="unit-count">${c.units} 個單元・${c.status}</div>
+          <div>${topics}<span class="topic-pill" style="background:#e8e8e8;">+${c.topics.length - 4} 更多</span></div>
+          <a href="academy/index.html#${c.id}" class="btn btn-sm btn-outline-navy mt-3">查看課程 →</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function renderSeminars() {
+  const res = await fetch('data/seminars.json');
+  const seminars = await res.json();
+  const container = document.getElementById('seminar-cards');
+  const tc = trackColors;
+  container.innerHTML = seminars.slice(0, 3).map(s => {
+    const color = tc[s.track] || { bg: '#f0f4f8', accent: '#333' };
+    const hasVideo = !!s.videoUrl;
+    return `
+    <div class="col-md-4">
+      <div class="seminar-card card">
+        <div class="seminar-thumb" style="background:linear-gradient(135deg, ${color.accent} 0%, #0a4a6e 100%);">
+          <span class="track-label-badge" style="background:${color.bg}; color:${color.accent};">${s.trackLabel}</span>
+          ${hasVideo
+            ? `<a href="${s.videoUrl}" target="_blank" class="play-btn">▶</a>`
+            : `<div class="play-btn" title="影片即將上線" style="opacity:.5; cursor:default;">▶</div>`}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${s.title}</div>
+          <div class="speaker">${s.speaker}</div>
+          <div class="meta">${s.date} &nbsp;·&nbsp; ${s.duration}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function renderNews() {
+  const res = await fetch('data/news.json');
+  const news = await res.json();
+  const container = document.getElementById('news-list');
+  container.innerHTML = news.map(n => `
+    <div class="news-item d-flex align-items-start gap-3">
+      <span class="news-date">${n.date}</span>
+      <div><span class="news-tag-zh">${n.tag}</span><a href="${n.url}" target="_blank">${n.title}</a></div>
+    </div>`).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderTracks();
+  renderSeminars();
+  renderNews();
+});
+</script>
+</body>
+</html>

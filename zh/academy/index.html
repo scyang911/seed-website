@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEED 雲學院 — 課程總覽</title>
+<meta name="description" content="SEED 雲學院課程總覽：電池技術、薄膜工程、氫能系統。台科大 SEED 中心線上知識平台。">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+  body { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', system-ui, sans-serif; }
+
+  /* ── Academy Hero ── */
+  .academy-hero {
+    background: linear-gradient(135deg, #006d61 0%, #00a896 50%, #1b3a6b 100%);
+    color: #fff; padding: 72px 0 56px;
+  }
+  .academy-hero h1 { font-size: 2.2rem; font-weight: 800; }
+  .academy-hero .lead { opacity: .88; font-size: 1rem; line-height: 1.8; max-width: 580px; }
+  .academy-badge {
+    display: inline-block; background: rgba(255,255,255,.2); color: #fff;
+    font-size: .75rem; font-weight: 600; letter-spacing: .08em;
+    padding: 3px 12px; border-radius: 20px; margin-bottom: .9rem;
+    border: 1px solid rgba(255,255,255,.3);
+  }
+  .academy-stat { text-align: center; padding: .8rem 1rem; border-left: 1px solid rgba(255,255,255,.2); }
+  .academy-stat:first-child { border-left: none; }
+  .academy-stat .num { font-size: 1.7rem; font-weight: 700; color: #7ef0e6; }
+  .academy-stat .lbl { font-size: .72rem; opacity: .75; text-transform: uppercase; letter-spacing: .05em; }
+
+  /* ── 篩選器 ── */
+  .filter-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+  .filter-btn { font-size: .82rem; padding: 5px 16px; border-radius: 20px; border: 1.5px solid var(--border); color: #555; background: #fff; cursor: pointer; transition: all .18s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .filter-btn.active-battery  { background: #1b3a6b; border-color: #1b3a6b; color: #fff; }
+  .filter-btn.active-membrane { background: #1a6640; border-color: #1a6640; color: #fff; }
+  .filter-btn.active-hydrogen { background: #8a5a00; border-color: #8a5a00; color: #fff; }
+
+  /* ── 課程主軸卡片 ── */
+  .course-track-card {
+    border: none; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 3px 18px rgba(0,0,0,.09); height: 100%;
+    transition: transform .22s, box-shadow .22s;
+  }
+  .course-track-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(0,0,0,.14); }
+  .course-track-header { padding: 1.8rem 1.6rem 1.2rem; }
+  .course-track-icon {
+    width: 58px; height: 58px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 1rem;
+  }
+  .course-track-card h4 { font-weight: 800; font-size: 1.2rem; margin-bottom: .4rem; }
+  .topic-list { list-style: none; padding: 0; margin: 0; }
+  .topic-list li { font-size: .83rem; color: #555; padding: 5px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 8px; }
+  .topic-list li:last-child { border-bottom: none; }
+  .topic-list li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .status-badge { font-size: .7rem; padding: 2px 10px; border-radius: 20px; font-weight: 500; }
+
+  /* ── 演講影片 ── */
+  .seminar-card {
+    border: none; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    height: 100%; transition: transform .2s;
+  }
+  .seminar-card:hover { transform: translateY(-3px); }
+  .seminar-thumb {
+    height: 150px; display: flex; align-items: center; justify-content: center;
+    border-radius: 10px 10px 0 0; position: relative; overflow: hidden;
+  }
+  .play-btn {
+    width: 54px; height: 54px; background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.65); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; color: #fff; backdrop-filter: blur(4px);
+    transition: all .2s; cursor: pointer;
+  }
+  .seminar-card:hover .play-btn { background: rgba(0,168,150,.7); border-color: var(--teal); }
+  .track-label-badge {
+    position: absolute; top: 10px; left: 12px;
+    font-size: .7rem; padding: 2px 9px; border-radius: 3px; font-weight: 500;
+  }
+  .seminar-card .card-body { padding: 1rem 1.1rem 1.2rem; }
+  .seminar-card .card-title { font-size: .88rem; font-weight: 600; color: var(--navy); line-height: 1.45; margin-bottom: .4rem; }
+  .seminar-card .speaker { font-size: .78rem; color: var(--gray); }
+  .seminar-card .meta { font-size: .75rem; color: var(--gray); margin-top: .5rem; }
+  .coming-soon-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .78rem; color: rgba(255,255,255,.85); font-weight: 500;
+    letter-spacing: .05em;
+  }
+
+  /* ── CTA 區塊 ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #0a4a6e 100%);
+    color: #fff; padding: 56px 0; text-align: center;
+  }
+  .cta-section h3 { font-weight: 700; margin-bottom: .8rem; }
+</style>
+</head>
+<body>
+
+<!-- ── 導覽列 ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">
+      <img src="../../assets/images/logo.png" alt="SEED Center">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="../index.html">首頁</a></li>
+        <li class="nav-item"><a class="nav-link" href="../about.html">關於中心</a></li>
+        <li class="nav-item"><a class="nav-link" href="../members.html">成員</a></li>
+        <li class="nav-item"><a class="nav-link" href="../research.html">研究成果</a></li>
+        <li class="nav-item"><a class="nav-link" href="../international.html">國際合作</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html" style="color:var(--teal) !important; font-weight:600;">☁ 雲學院</a></li>
+        <li class="nav-item"><a class="nav-link" href="../contact.html">聯絡我們</a></li>
+        <li class="nav-item">
+          <a class="nav-link lang-btn" href="../../index.html">EN</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Academy Hero ── -->
+<section class="academy-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="academy-badge">☁ SEED 雲學院</div>
+        <h1>電化學能源<br>知識平台</h1>
+        <p class="lead">電池技術・薄膜工程・氫能系統<br>由台科大 SEED 中心研究人員親自講授，為學生、研究者與業界人士打造的專業學習平台。</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="#courses" class="btn btn-teal px-4">瀏覽課程</a>
+          <a href="#seminars" class="btn btn-outline-light px-4">觀看演講</a>
+        </div>
+      </div>
+    </div>
+    <!-- Stats -->
+    <div class="row g-0 mt-5">
+      <div class="col-6 col-md-3 academy-stat">
+        <div class="num">3</div>
+        <div class="lbl">課程主軸</div>
+      </div>
+      <div class="col-6 col-md-3 academy-stat">
+        <div class="num">20+</div>
+        <div class="lbl">課程單元</div>
+      </div>
+      <div class="col-6 col-md-3 academy-stat">
+        <div class="num">6+</div>
+        <div class="lbl">演講影片</div>
+      </div>
+      <div class="col-6 col-md-3 academy-stat">
+        <div class="num">免費</div>
+        <div class="lbl">完全開放</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 篩選器 ── -->
+<div class="filter-bar">
+  <div class="container d-flex gap-2 flex-wrap">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="battery">🔋 電池技術</button>
+    <button class="filter-btn" data-filter="membrane">🧪 薄膜工程</button>
+    <button class="filter-btn" data-filter="hydrogen">⚡ 氫能系統</button>
+  </div>
+</div>
+
+<!-- ── 課程主軸 ── -->
+<section class="py-5 bg-light-custom" id="courses">
+  <div class="container">
+    <h2 class="section-title">課程主軸</h2>
+    <div class="section-line"></div>
+    <p class="text-muted mb-4">三條完整的學習路徑，從基礎理論到前沿研究，循序漸進。</p>
+    <div id="course-track-cards" class="row g-4">
+      <!-- 由 JS 渲染 -->
+    </div>
+  </div>
+</section>
+
+<!-- ── 演講影片 ── -->
+<section class="py-5" id="seminars">
+  <div class="container">
+    <h2 class="section-title">演講精華影片</h2>
+    <div class="section-line"></div>
+    <p class="text-muted mb-4">SEED 中心定期舉辦國際演講，精華影片於此持續更新。</p>
+    <div id="seminar-grid" class="row g-4">
+      <!-- 由 JS 渲染 -->
+    </div>
+  </div>
+</section>
+
+<!-- ── 科普文章佔位 ── -->
+<section class="py-5 bg-light-custom" id="articles">
+  <div class="container">
+    <h2 class="section-title">科普文章</h2>
+    <div class="section-line"></div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center py-4">
+        <div style="font-size:3rem; opacity:.3;">📝</div>
+        <p class="text-muted mt-3">科普文章欄位即將上線，敬請期待。</p>
+        <p class="text-muted small">計畫涵蓋：固態電解質入門、氫能現況解析、薄膜技術科普……</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="container">
+    <h3>有課程建議或合作意願？</h3>
+    <p class="opacity-75 mb-4">我們歡迎研究機構、學術單位與業界的合作提案。</p>
+    <a href="../contact.html" class="btn btn-teal px-5">聯絡我們</a>
+  </div>
+</section>
+
+<!-- ── 頁腳 ── -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <img src="../../assets/images/logo.png" alt="SEED" style="height:40px; filter:brightness(0) invert(1); opacity:.85;" class="mb-3">
+        <p>永續電化學能源發展中心<br>國立臺灣科技大學</p>
+      </div>
+      <div class="col-md-4">
+        <h6>雲學院</h6>
+        <ul class="list-unstyled">
+          <li><a href="#courses">課程主軸</a></li>
+          <li><a href="#seminars">演講影片</a></li>
+          <li><a href="#articles">科普文章</a></li>
+          <li><a href="../index.html">回中心首頁</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6>聯絡資訊</h6>
+        <p>台北市大安區基隆路四段 43 號 IB-R606</p>
+        <p>電話：+886-2-2733-3141 分機 6800</p>
+        <p><a href="mailto:seed@mail.ntust.edu.tw">seed@mail.ntust.edu.tw</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      © 2026 SEED 中心，國立臺灣科技大學。保留所有權利。
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const trackMeta = {
+  battery:  { icon: '🔋', bg: '#e3f0fb', accent: '#1b3a6b', dotColor: '#1b3a6b' },
+  membrane: { icon: '🧪', bg: '#e8f8f0', accent: '#1a6640', dotColor: '#1a6640' },
+  hydrogen: { icon: '⚡', bg: '#fdf3e3', accent: '#8a5a00', dotColor: '#8a5a00' }
+};
+
+let allSeminars = [];
+let currentFilter = 'all';
+
+async function renderCourses() {
+  const res = await fetch('../data/courses.json');
+  const courses = await res.json();
+  const container = document.getElementById('course-track-cards');
+  container.innerHTML = courses.map(c => {
+    const tm = trackMeta[c.id] || { icon: '📚', bg: '#f0f4f8', accent: '#333', dotColor: '#333' };
+    const topics = c.topics.map(t =>
+      `<li style="--dot-color:${tm.dotColor}"><span style="background:${tm.dotColor}; width:6px; height:6px; border-radius:50%; display:inline-block; flex-shrink:0;"></span>${t}</li>`
+    ).join('');
+    return `
+    <div class="col-md-4" data-track="${c.id}">
+      <div class="course-track-card">
+        <div class="course-track-header" style="background:${tm.bg};">
+          <div class="course-track-icon" style="background:rgba(255,255,255,.6);">${tm.icon}</div>
+          <h4 style="color:${tm.accent};">${c.title}</h4>
+          <p class="small mb-2" style="color:${tm.accent}; opacity:.75;">${c.description}</p>
+          <span class="status-badge" style="background:rgba(255,255,255,.5); color:${tm.accent};">${c.units} 個單元・${c.status}</span>
+        </div>
+        <div class="p-3">
+          <ul class="topic-list">${topics}</ul>
+          <a href="#seminars" class="btn btn-sm btn-outline-navy mt-3 w-100" onclick="filterBy('${c.id}')">查看相關演講 →</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function loadSeminars() {
+  const res = await fetch('../data/seminars.json');
+  allSeminars = await res.json();
+  renderSeminars(allSeminars);
+}
+
+function renderSeminars(seminars) {
+  const container = document.getElementById('seminar-grid');
+  if (seminars.length === 0) {
+    container.innerHTML = '<div class="col-12 text-center text-muted py-4">此分類目前無影片。</div>';
+    return;
+  }
+  container.innerHTML = seminars.map(s => {
+    const tm = trackMeta[s.track] || { bg: '#f0f4f8', accent: '#333' };
+    const hasVideo = !!s.videoUrl;
+    const thumb = hasVideo
+      ? `<a href="${s.videoUrl}" target="_blank" class="play-btn">▶</a>`
+      : `<div class="coming-soon-overlay">即將上線</div><div class="play-btn" style="opacity:.35; cursor:default;">▶</div>`;
+    return `
+    <div class="col-sm-6 col-lg-4" data-track="${s.track}">
+      <div class="seminar-card card">
+        <div class="seminar-thumb" style="background:linear-gradient(135deg, ${tm.accent} 0%, #0a4a6e 100%);">
+          <span class="track-label-badge" style="background:${tm.bg}; color:${tm.accent};">${s.trackLabel}</span>
+          ${thumb}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${s.title}</div>
+          <div class="speaker">${s.speaker}</div>
+          <div class="meta">${s.date} &nbsp;·&nbsp; ${s.duration}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterBy(track) {
+  currentFilter = track;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active', 'active-battery', 'active-membrane', 'active-hydrogen');
+    if (btn.dataset.filter === track) {
+      btn.classList.add('active', `active-${track}`);
+    }
+  });
+  const filtered = track === 'all' ? allSeminars : allSeminars.filter(s => s.track === track);
+  renderSeminars(filtered);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCourses();
+  loadSeminars();
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'active-battery', 'active-membrane', 'active-hydrogen'));
+      const f = btn.dataset.filter;
+      btn.classList.add('active', f !== 'all' ? `active-${f}` : '');
+      filterBy(f);
+    });
+  });
+});
+</script>
+</body>
+</html>
