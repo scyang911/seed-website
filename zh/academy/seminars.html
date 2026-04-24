@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>演講精華影片 — SEED 雲學院</title>
+<meta name="description" content="SEED 中心國際演講與學術會議精華錄影。電池技術、薄膜工程、氫能系統主題影片免費觀看。">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+  body { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', system-ui, sans-serif; }
+
+  .page-hero {
+    background: linear-gradient(135deg, #006d61 0%, #00a896 50%, #1b3a6b 100%);
+    color: #fff; padding: 60px 0 44px;
+  }
+  .page-hero h1 { font-size: 2rem; font-weight: 800; }
+  .page-hero .lead { opacity: .88; font-size: .95rem; line-height: 1.8; }
+  .academy-badge {
+    display: inline-block; background: rgba(255,255,255,.2); color: #fff;
+    font-size: .75rem; font-weight: 600; letter-spacing: .08em;
+    padding: 3px 12px; border-radius: 20px; margin-bottom: .9rem;
+    border: 1px solid rgba(255,255,255,.3);
+  }
+
+  .filter-bar {
+    background: #fff; border-bottom: 1px solid var(--border);
+    padding: 12px 0; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .filter-btn {
+    font-size: .82rem; padding: 5px 16px; border-radius: 20px;
+    border: 1.5px solid var(--border); color: #555; background: #fff;
+    cursor: pointer; transition: all .18s;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* ── 影片卡片 ── */
+  .seminar-card {
+    border: none; border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,.08); height: 100%;
+    transition: transform .22s, box-shadow .22s; overflow: hidden;
+  }
+  .seminar-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
+
+  .seminar-thumb {
+    height: 185px; position: relative; overflow: hidden;
+    background: #1b3a6b; background-size: cover; background-position: center;
+  }
+  .seminar-thumb::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 60%);
+  }
+  .play-overlay {
+    position: absolute; inset: 0; display: flex; align-items: center;
+    justify-content: center; z-index: 2;
+  }
+  .play-btn {
+    width: 56px; height: 56px; background: rgba(255,255,255,.18);
+    border: 2px solid rgba(255,255,255,.7); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; color: #fff; backdrop-filter: blur(4px);
+    transition: all .2s; text-decoration: none;
+  }
+  .seminar-card:hover .play-btn { background: rgba(0,168,150,.8); border-color: var(--teal); }
+  .coming-soon-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .8rem; color: rgba(255,255,255,.8); font-weight: 500;
+    letter-spacing: .05em; z-index: 2;
+  }
+  .track-badge {
+    position: absolute; top: 10px; left: 12px; z-index: 3;
+    font-size: .7rem; padding: 2px 9px; border-radius: 3px; font-weight: 500;
+  }
+  .duration-badge {
+    position: absolute; bottom: 10px; right: 10px; z-index: 3;
+    font-size: .7rem; background: rgba(0,0,0,.65); color: #fff;
+    padding: 2px 7px; border-radius: 3px;
+  }
+
+  .seminar-card .card-body { padding: 1rem 1.2rem 1.3rem; }
+  .seminar-card .card-title {
+    font-size: .88rem; font-weight: 600; color: var(--navy);
+    line-height: 1.5; margin-bottom: .5rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .seminar-card .speaker { font-size: .78rem; color: #555; margin-bottom: .2rem; }
+  .seminar-card .affiliation { font-size: .73rem; color: var(--gray); }
+  .seminar-card .meta { font-size: .74rem; color: var(--gray); margin-top: .6rem; }
+
+  .coming-soon-card .seminar-thumb { opacity: .75; }
+  .coming-soon-card .card-title { color: #888; }
+
+  /* ── 統計橫幅 ── */
+  .stats-bar { background: var(--navy); color: #fff; padding: 20px 0; }
+  .stat-item { text-align: center; }
+  .stat-item .num { font-size: 1.6rem; font-weight: 700; color: var(--teal); }
+  .stat-item .lbl { font-size: .72rem; opacity: .75; text-transform: uppercase; letter-spacing: .05em; }
+</style>
+</head>
+<body>
+
+<!-- ── 導覽列 ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">
+      <img src="../../assets/images/logo.png" alt="SEED Center">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="../index.html">首頁</a></li>
+        <li class="nav-item"><a class="nav-link" href="../about.html">關於中心</a></li>
+        <li class="nav-item"><a class="nav-link" href="../members.html">成員</a></li>
+        <li class="nav-item"><a class="nav-link" href="../research.html">研究成果</a></li>
+        <li class="nav-item"><a class="nav-link" href="../international.html">國際合作</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html" style="color:var(--teal) !important; font-weight:600;">☁ 雲學院</a></li>
+        <li class="nav-item"><a class="nav-link" href="../contact.html">聯絡我們</a></li>
+        <li class="nav-item"><a class="nav-link lang-btn" href="../../index.html">EN</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="academy-badge">☁ SEED 雲學院 › 演講影片</div>
+    <h1>演講精華影片</h1>
+    <p class="lead">SEED 中心定期舉辦國際學術演講與研討會<br>精華錄影於此持續更新，免費開放觀看。</p>
+  </div>
+</section>
+
+<!-- ── 統計橫幅 ── -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="row g-0" id="stats-bar">
+      <div class="col-4 stat-item">
+        <div class="num" id="stat-total">—</div>
+        <div class="lbl">影片總數</div>
+      </div>
+      <div class="col-4 stat-item">
+        <div class="num" id="stat-available">—</div>
+        <div class="lbl">現已上線</div>
+      </div>
+      <div class="col-4 stat-item">
+        <div class="num" id="stat-coming">—</div>
+        <div class="lbl">即將上線</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 篩選器 ── -->
+<div class="filter-bar">
+  <div class="container d-flex gap-2 flex-wrap align-items-center">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="battery">🔋 電池技術</button>
+    <button class="filter-btn" data-filter="membrane">🧪 薄膜工程</button>
+    <button class="filter-btn" data-filter="hydrogen">⚡ 氫能系統</button>
+    <button class="filter-btn" data-filter="conference">🎓 年會</button>
+    <span class="ms-auto text-muted" style="font-size:.8rem;" id="filter-count"></span>
+  </div>
+</div>
+
+<!-- ── 影片格網 ── -->
+<section class="py-5">
+  <div class="container">
+    <div id="seminar-grid" class="row g-4">
+      <div class="col-12 text-center py-5 text-muted">載入中…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 返回雲學院 CTA ── -->
+<section style="background:#f8f9fb; padding:40px 0; text-align:center; border-top:1px solid var(--border);">
+  <div class="container">
+    <p class="text-muted mb-3" style="font-size:.9rem;">想瀏覽完整課程內容？</p>
+    <a href="index.html" class="btn btn-navy px-4">← 回到雲學院首頁</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="py-4" style="background:var(--navy); color:rgba(255,255,255,.6); font-size:.82rem; text-align:center;">
+  <div class="container">
+    © 2025 SEED Center, National Taiwan University of Science and Technology. All rights reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const trackMeta = {
+  battery:  { bg: '#e8f0fc', accent: '#1b3a6b', label: '電池技術' },
+  membrane: { bg: '#e6f5ee', accent: '#1a6640', label: '薄膜工程' },
+  hydrogen: { bg: '#fff4e0', accent: '#8a5a00', label: '氫能系統' },
+  general:  { bg: '#f0f4f8', accent: '#444',    label: '一般' }
+};
+
+let allSeminars = [];
+let currentFilter = 'all';
+
+async function init() {
+  const res = await fetch('../data/seminars.json');
+  allSeminars = await res.json();
+  updateStats();
+  renderSeminars(allSeminars);
+  setupFilters();
+}
+
+function updateStats() {
+  const available = allSeminars.filter(s => s.youtube_id || s.videoUrl).length;
+  const coming = allSeminars.length - available;
+  document.getElementById('stat-total').textContent = allSeminars.length;
+  document.getElementById('stat-available').textContent = available;
+  document.getElementById('stat-coming').textContent = coming;
+}
+
+function renderSeminars(list) {
+  const container = document.getElementById('seminar-grid');
+  const count = document.getElementById('filter-count');
+  const available = list.filter(s => s.youtube_id || s.videoUrl);
+  const coming = list.filter(s => !(s.youtube_id || s.videoUrl));
+  const sorted = [...available, ...coming];
+
+  count.textContent = `共 ${sorted.length} 部`;
+
+  if (sorted.length === 0) {
+    container.innerHTML = '<div class="col-12 text-center text-muted py-5">此分類目前無影片。</div>';
+    return;
+  }
+
+  container.innerHTML = sorted.map(s => {
+    const tm = trackMeta[s.track] || trackMeta.general;
+    const hasVideo = !!(s.youtube_id || s.videoUrl);
+    const ytUrl = s.youtube_id
+      ? `https://www.youtube.com/watch?v=${s.youtube_id}`
+      : s.videoUrl;
+    const thumbStyle = s.youtube_id
+      ? `background-image:url('https://i.ytimg.com/vi/${s.youtube_id}/mqdefault.jpg'); background-size:cover; background-position:center;`
+      : `background: linear-gradient(135deg, ${tm.accent} 0%, #0a4a6e 100%);`;
+    const durationBadge = s.duration_min
+      ? `<span class="duration-badge">${s.duration_min} 分鐘</span>`
+      : '';
+    const playArea = hasVideo
+      ? `<div class="play-overlay"><a href="${ytUrl}" target="_blank" rel="noopener" class="play-btn" aria-label="播放影片">▶</a></div>`
+      : `<div class="coming-soon-overlay">即將上線</div>`;
+    const affiliation = s.speaker_affiliation
+      ? `<div class="affiliation">${s.speaker_affiliation}</div>`
+      : '';
+    const catBadge = s.category === 'conference'
+      ? `<span class="badge bg-warning text-dark ms-1" style="font-size:.65rem;">年會</span>`
+      : '';
+
+    return `
+    <div class="col-sm-6 col-lg-4" data-track="${s.track}" data-category="${s.category || ''}">
+      <div class="seminar-card card ${hasVideo ? '' : 'coming-soon-card'}">
+        <div class="seminar-thumb" style="${thumbStyle}">
+          <span class="track-badge" style="background:${tm.bg}; color:${tm.accent};">${tm.label}</span>
+          ${durationBadge}
+          ${playArea}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${s.title}${catBadge}</div>
+          <div class="speaker">${s.speaker}</div>
+          ${affiliation}
+          <div class="meta">${s.date}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setupFilters() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      const filtered = currentFilter === 'all'
+        ? allSeminars
+        : currentFilter === 'conference'
+          ? allSeminars.filter(s => s.category === 'conference')
+          : allSeminars.filter(s => s.track === currentFilter);
+      renderSeminars(filtered);
+    });
+  });
+}
+
+init().catch(err => {
+  document.getElementById('seminar-grid').innerHTML =
+    '<div class="col-12 text-center text-muted py-5">載入失敗，請重新整理頁面。</div>';
+  console.error(err);
+});
+</script>
+</body>
+</html>

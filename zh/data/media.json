@@ -1,0 +1,58 @@
+[
+  {
+    "id": "media-2025-nanfang-energy",
+    "title": "2025.06.10【南方科技城】主題：能源轉型革新：再生能源與儲能",
+    "date": "2025-06-10",
+    "youtube_id": "kC0V35utEXo",
+    "media_type": "outreach",
+    "outlet": "高雄廣播電臺 943",
+    "description": "主持：潘俊仁（國立高雄科技大學副研發長）；來賓：黃炳照（國家講座兼臺科大SEED中心主任）。探討再生能源與儲能技術如何推動全球能源轉型，從鋰電池、液流電池到氫能燃料電池的未來發展。",
+    "featured": true,
+    "published": true,
+    "press_release_url": null,
+    "tags": ["能源轉型", "再生能源", "儲能", "科普"],
+    "external_url": null
+  },
+  {
+    "id": "media-2024-nanfang-battery",
+    "title": "2024.10.15【南方科技城】主題：電池科技的演進與未來挑戰",
+    "date": "2024-10-15",
+    "youtube_id": "qoeFLk6JpjU",
+    "media_type": "outreach",
+    "outlet": "高雄廣播電臺 943",
+    "description": "主持：潘俊仁（國立高雄科技大學副研發長）；來賓：黃炳照（國家講座兼臺科大SEED中心主任）。深入分享台灣電池科技從研發歷程到現況，討論技術瓶頸與固態電池發展趨勢。",
+    "featured": false,
+    "published": true,
+    "press_release_url": null,
+    "tags": ["電池技術", "固態電池", "科普"],
+    "external_url": null
+  },
+  {
+    "id": "media-2024-nanfang-hydrogen",
+    "title": "2024.05.07【南方科技城】主題：再生能源儲存與碘廢液氫能轉換",
+    "date": "2024-05-07",
+    "youtube_id": "Kg55acHX5nk",
+    "media_type": "outreach",
+    "outlet": "高雄廣播電臺 943",
+    "description": "主持：潘俊仁（國立高雄科技大學副研發長）；來賓：黃炳照（國家講座兼臺科大SEED中心主任）。探討氫能技術如何支持淨零排放目標，以及碘廢液產氫技術的環保與成本優勢。",
+    "featured": false,
+    "published": true,
+    "press_release_url": null,
+    "tags": ["氫能", "再生能源", "淨零排放", "科普"],
+    "external_url": null
+  },
+  {
+    "id": "media-2024-ttv-battery-safety",
+    "title": "鋰電池方便使用廣！不當使用恐釀危險火災【發現科學】",
+    "date": "2024-07-15",
+    "youtube_id": "bDKa8ZxZwU0",
+    "media_type": "news",
+    "outlet": "台視新聞 TTV NEWS",
+    "description": "台視新聞採訪 SEED 中心主任黃炳照教授與王復民教授，說明鋰電池爆炸起火原因及安全使用重要性。",
+    "featured": false,
+    "published": true,
+    "press_release_url": null,
+    "tags": ["電池安全", "鋰電池", "媒體報導"],
+    "external_url": "https://news.ttv.com.tw/"
+  }
+]

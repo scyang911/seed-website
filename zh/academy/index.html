@@ -301,14 +301,18 @@ function renderSeminars(seminars) {
   }
   container.innerHTML = seminars.map(s => {
     const tm = trackMeta[s.track] || { bg: '#f0f4f8', accent: '#333' };
-    const hasVideo = !!s.videoUrl;
+    const hasVideo = !!(s.youtube_id || s.videoUrl);
+    const ytUrl = s.youtube_id ? `https://www.youtube.com/watch?v=${s.youtube_id}` : s.videoUrl;
+    const thumbStyle = s.youtube_id
+      ? `background-image:url('https://i.ytimg.com/vi/${s.youtube_id}/mqdefault.jpg'); background-size:cover; background-position:center;`
+      : `background:linear-gradient(135deg, ${tm.accent} 0%, #0a4a6e 100%);`;
     const thumb = hasVideo
-      ? `<a href="${s.videoUrl}" target="_blank" class="play-btn">▶</a>`
+      ? `<a href="${ytUrl}" target="_blank" rel="noopener" class="play-btn">▶</a>`
       : `<div class="coming-soon-overlay">即將上線</div><div class="play-btn" style="opacity:.35; cursor:default;">▶</div>`;
     return `
     <div class="col-sm-6 col-lg-4" data-track="${s.track}">
       <div class="seminar-card card">
-        <div class="seminar-thumb" style="background:linear-gradient(135deg, ${tm.accent} 0%, #0a4a6e 100%);">
+        <div class="seminar-thumb" style="${thumbStyle}">
           <span class="track-label-badge" style="background:${tm.bg}; color:${tm.accent};">${s.trackLabel}</span>
           ${thumb}
         </div>
