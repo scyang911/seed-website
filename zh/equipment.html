@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旗艦儀器設備 — SEED 中心</title>
+<meta name="description" content="台科大 SEED 中心核心旗艦儀器設備介紹，涵蓋電池安全熱分析、原位電化學觀測、材料微結構分析與先進製備系統。">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  body { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', system-ui, sans-serif; }
+
+  .page-hero {
+    background: linear-gradient(135deg, #1b3a6b 0%, #0a4a6e 50%, #006d61 100%);
+    color: #fff; padding: 64px 0 48px;
+  }
+  .page-hero h1 { font-size: 2rem; font-weight: 800; }
+  .page-hero .lead { opacity: .88; font-size: .95rem; line-height: 1.8; max-width: 600px; }
+  .page-badge {
+    display: inline-block; background: rgba(255,255,255,.2); color: #fff;
+    font-size: .75rem; font-weight: 600; letter-spacing: .08em;
+    padding: 3px 12px; border-radius: 20px; margin-bottom: .9rem;
+    border: 1px solid rgba(255,255,255,.3);
+  }
+
+  /* ── 分類標題 ── */
+  .category-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.5rem; padding-bottom: .7rem;
+    border-bottom: 2px solid var(--teal);
+  }
+  .category-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .category-header h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 0; }
+  .category-header p { font-size: .8rem; color: var(--gray); margin: 0; }
+
+  /* ── 設備卡片 ── */
+  .eq-card {
+    border: none; border-radius: 14px; height: 100%;
+    box-shadow: 0 3px 16px rgba(0,0,0,.08);
+    transition: transform .22s, box-shadow .22s; overflow: hidden;
+  }
+  .eq-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
+
+  .eq-banner {
+    height: 110px; display: flex; align-items: center;
+    justify-content: center; position: relative; overflow: hidden;
+  }
+  .eq-banner .eq-icon { font-size: 2.6rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+  .eq-banner .flagship-badge {
+    position: absolute; top: 10px; right: 10px;
+    background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.4);
+    color: #fff; font-size: .65rem; font-weight: 700; letter-spacing: .06em;
+    padding: 2px 8px; border-radius: 3px;
+  }
+
+  .eq-card .card-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .eq-card .eq-name { font-size: .92rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; line-height: 1.4; }
+  .eq-card .eq-model { font-size: .75rem; color: var(--teal); font-weight: 600; margin-bottom: .6rem; font-family: 'Courier New', monospace; }
+  .eq-card .eq-desc { font-size: .81rem; color: #555; line-height: 1.65; margin-bottom: .8rem; }
+  .eq-card .eq-specs { list-style: none; padding: 0; margin: 0; }
+  .eq-card .eq-specs li {
+    font-size: .76rem; color: var(--gray); padding: 3px 0;
+    border-bottom: 1px solid #f0f0f0; display: flex; gap: 6px; align-items: flex-start;
+  }
+  .eq-card .eq-specs li:last-child { border-bottom: none; }
+  .eq-card .eq-specs li::before { content: '▸'; color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+
+  /* ── 統計橫幅 ── */
+  .stats-strip { background: var(--navy); color: #fff; padding: 22px 0; }
+  .stat-item { text-align: center; }
+  .stat-item .num { font-size: 1.8rem; font-weight: 700; color: var(--teal); }
+  .stat-item .lbl { font-size: .72rem; opacity: .7; text-transform: uppercase; letter-spacing: .05em; }
+
+  /* ── 乾燥室特殊樣式 ── */
+  .dry-room-card {
+    border: none; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 3px 16px rgba(0,0,0,.08);
+    transition: transform .22s, box-shadow .22s;
+  }
+  .dry-room-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
+  .dry-room-banner {
+    background: linear-gradient(135deg, #1b3a6b 0%, #2c5282 50%, #00a896 100%);
+    padding: 28px 32px; color: #fff;
+  }
+
+  /* 顏色方案 */
+  .bg-safety   { background: linear-gradient(135deg, #c0392b 0%, #8e1a0e 100%); }
+  .bg-optical  { background: linear-gradient(135deg, #1a6640 0%, #00a896 100%); }
+  .bg-micro    { background: linear-gradient(135deg, #1b3a6b 0%, #0a4a6e 100%); }
+  .bg-fab      { background: linear-gradient(135deg, #6d4c41 0%, #3e2723 100%); }
+  .bg-surface  { background: linear-gradient(135deg, #4a148c 0%, #1b3a6b 100%); }
+</style>
+</head>
+<body>
+
+<!-- ── 導覽列 ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="../assets/images/logo.png" alt="SEED Center">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">關於中心</a></li>
+        <li class="nav-item"><a class="nav-link" href="members.html">成員</a></li>
+        <li class="nav-item"><a class="nav-link active" href="research.html" style="color:var(--teal) !important; font-weight:600;">研究成果</a></li>
+        <li class="nav-item"><a class="nav-link" href="international.html">國際合作</a></li>
+        <li class="nav-item"><a class="nav-link" href="academy/index.html">☁ 雲學院</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
+        <li class="nav-item"><a class="nav-link lang-btn" href="../index.html">EN</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-badge">🔬 核心研究設備</div>
+    <h1>旗艦儀器設備</h1>
+    <p class="lead">SEED 中心建置尖端研究設備，涵蓋電池安全熱分析、原位電化學觀測、材料微結構表徵與先進材料製備，支持世界級電化學能源研究。</p>
+  </div>
+</section>
+
+<!-- ── 統計橫幅 ── -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-4 stat-item"><div class="num">12+</div><div class="lbl">旗艦設備</div></div>
+      <div class="col-4 stat-item"><div class="num">4</div><div class="lbl">研究領域</div></div>
+      <div class="col-4 stat-item"><div class="num">6</div><div class="lbl">手套箱工作站</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 主要內容 ── -->
+<div class="py-5">
+  <div class="container">
+
+    <!-- 1. 電池安全與熱分析 -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#fde8e6;">🔥</div>
+        <div>
+          <h3>電池安全與熱分析</h3>
+          <p>電池熱失控偵測、微量熱流量測與熱物性分析</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- THT EV+ARC -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-safety">
+              <span class="eq-icon">⚡</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">電池安全熱失控反應監測系統</div>
+              <div class="eq-model">THT EV+ARC</div>
+              <div class="eq-desc">
+                全球頂級電動車電池安全測試設備，以絕熱加速量熱法（ARC）精確模擬電池熱失控（Thermal Runaway）起始條件與傳播行為，用於量化電池熱穩定性與安全邊界。
+              </div>
+              <ul class="eq-specs">
+                <li>靈敏度 0.05°C/min，可偵測微弱自放熱</li>
+                <li>壓力量測範圍 0–200 bar，解析度 0.005 bar</li>
+                <li>符合 SAE J2464、USABC/FreedomCAR、UN/UL 標準</li>
+                <li>適用於電芯至模組尺度測試</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TA TAM IV -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-safety">
+              <span class="eq-icon">🌡️</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">多元臨場量熱分析儀</div>
+              <div class="eq-model">TA Instruments TAM IV</div>
+              <div class="eq-desc">
+                高精度多通道恆溫量熱儀，可同步量測 8 個樣品的微瓦級熱流，用於電池老化速率、自放電產熱、固態電解質合成反應熱的長時間精確監測。
+              </div>
+              <ul class="eq-specs">
+                <li>溫控精度 ±0.0001°C（專利恆溫浴技術）</li>
+                <li>最多 8 通道同時獨立量測</li>
+                <li>偵測下限達 μW 級熱流</li>
+                <li>支援恆溫、階段恆溫、溫度掃描三種模式</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TA DSC2500 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-safety">
+              <span class="eq-icon">📈</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">高階調幅式熱示差掃描熱分析儀</div>
+              <div class="eq-model">TA Discovery DSC 2500</div>
+              <div class="eq-desc">
+                具調幅（Modulated）功能的高靈敏度 DSC，可精確分離可逆與不可逆熱事件，廣泛用於固態電解質、電極材料及高分子隔膜的玻璃轉移、熔融、結晶等熱物性分析。
+              </div>
+              <ul class="eq-specs">
+                <li>溫度範圍 −90°C 至 550°C</li>
+                <li>調幅 DSC（MDSC）可分離複雜熱事件</li>
+                <li>Tzero 技術確保基線穩定與高靈敏度</li>
+                <li>可搭配 RCS 冷卻附件進行低溫量測</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. 原位電化學觀測與氣體分析 -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#e6f5ee;">🔭</div>
+        <div>
+          <h3>原位電化學觀測與氣體分析</h3>
+          <p>充放電過程中的即時反應視覺化與氣體逸散監測</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Lasertec ECCSB320 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-optical">
+              <span class="eq-icon">🔬</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">電子化學反應可視化共軛焦光學系統</div>
+              <div class="eq-model">Lasertec ECCS B320</div>
+              <div class="eq-desc">
+                全球罕見的原位（In-situ）電化學共軛焦顯微系統，可在電池充放電過程中即時高解析度觀察電極表面反應分布、樹枝晶（Dendrite）生長及活性材料體積膨脹，是研究電池失效機制的核心利器。
+              </div>
+              <ul class="eq-specs">
+                <li>真彩色共軛焦光學設計，排除電解液介面干擾</li>
+                <li>可量化電極厚度變化與活性材料分布不均勻性</li>
+                <li>即時追蹤石墨負極充電狀態顏色變化（灰→藍→紅→金）</li>
+                <li>整合電化學工作站同步記錄電流/電壓曲線</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nanobase XperRAM-S -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-optical">
+              <span class="eq-icon">💡</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">共軛焦快速掃描顯微拉曼光譜儀</div>
+              <div class="eq-model">Nanobase XperRAM-S</div>
+              <div class="eq-desc">
+                高效能多雷射共軛焦拉曼顯微鏡，支援快速二維面掃描成像，可對電池電極、固態電解質等材料進行非破壞性化學結構與相分佈分析，解析奈米至微米尺度的分子鍵結資訊。
+              </div>
+              <ul class="eq-specs">
+                <li>多雷射波長（405–1064 nm），適用多種材料體系</li>
+                <li>快速 2D 面掃成像（200×200 μm）</li>
+                <li>多種光柵選擇（300–2400 lpmm），高解析度模式可切換</li>
+                <li>支援光致螢光（PL）與電致螢光（EL）量測</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shimadzu GCMS -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-optical">
+              <span class="eq-icon">🧪</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">GC-Mass 分析與電池溢出氣體平台</div>
+              <div class="eq-model">Shimadzu GC-MS</div>
+              <div class="eq-desc">
+                整合氣相層析儀與質譜儀的電池氣體分析平台，可精確鑑定電池充放電、過充或熱失控時所逸散的微量氣體（CO₂、CO、H₂、烴類等），是評估電解液分解機制與電池安全性的關鍵工具。
+              </div>
+              <ul class="eq-specs">
+                <li>GC-MS 聯用，同時提供分離（GC）與鑑定（MS）能力</li>
+                <li>可偵測 ppm 至 ppb 濃度級別的微量氣體</li>
+                <li>與電化學工作站整合進行原位氣體分析</li>
+                <li>用於電解液分解機制與固態電解質界面研究</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. 材料微結構與表面分析 -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#ebe8f5;">🧲</div>
+        <div>
+          <h3>材料微結構與表面分析</h3>
+          <p>奈米尺度形貌、元素組成及表面積孔徑量測</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- JEOL JSM-IT200 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-micro">
+              <span class="eq-icon">🔍</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">掃描式電子顯微鏡及能量分散光譜儀</div>
+              <div class="eq-model">JEOL JSM-IT200 + EDS</div>
+              <div class="eq-desc">
+                JEOL 高解析掃描電子顯微鏡，整合能量分散 X 射線光譜儀（EDS），可同時獲取電極、固態電解質及隔膜的奈米級微結構形貌與元素面分佈，支援高真空與低真空（非導電樣品）雙模式操作。
+              </div>
+              <ul class="eq-specs">
+                <li>解析度優於 10 nm（高真空模式，30 kV）</li>
+                <li>加速電壓 0.5–30 kV 可調</li>
+                <li>EDS 即時元素點分析、線掃描與面映射</li>
+                <li>低真空模式可觀測未鍍膜非導電樣品</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Micromeritics AutoChem 2920 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-surface">
+              <span class="eq-icon">⚗️</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">化學吸附分析儀</div>
+              <div class="eq-model">Micromeritics AutoChem 2920</div>
+              <div class="eq-desc">
+                全自動程序升溫化學吸附分析儀，用於量測電催化劑的活性位點數量、金屬分散度及酸鹼性，透過 TPR/TPO/TPD 實驗揭示催化材料的表面化學特性，為析氫、析氧電催化劑開發提供關鍵數據。
+              </div>
+              <ul class="eq-specs">
+                <li>支援 TPR（程序升溫還原）、TPO（氧化）、TPD（脫附）</li>
+                <li>量測金屬分散度、活性表面積</li>
+                <li>高精度 TCD 偵測器，靈敏度高</li>
+                <li>全自動操作，可連續運行多個樣品</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Micromeritics ASAP 2020 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-surface">
+              <span class="eq-icon">📊</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">全自動比表面積及孔徑分析儀（BET）</div>
+              <div class="eq-model">Micromeritics ASAP 2020</div>
+              <div class="eq-desc">
+                業界標準的 BET 比表面積與孔徑分佈分析系統，透過氮氣物理吸附等溫線精確量測電極材料、固態電解質及多孔材料的比表面積、孔徑分佈與孔體積，為材料設計最佳化提供直接依據。
+              </div>
+              <ul class="eq-specs">
+                <li>孔徑分析範圍 3.5 Å–5000 Å（中孔至巨孔）</li>
+                <li>高精度 N₂ 吸附，比表面積精確度優於 ±1.5%</li>
+                <li>支援多點 BET、BJH 孔徑分佈等分析模式</li>
+                <li>兩組樣品管可同時準備，提高量測效率</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. 材料製備與組裝 -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#fdf3e7;">🏗️</div>
+        <div>
+          <h3>材料製備與電池組裝</h3>
+          <p>從複合材料混煉、薄膜製備到惰性環境電池組裝</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <!-- Xplore MC 15 HT -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-fab">
+              <span class="eq-icon">⚙️</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">微量高扭力雙螺杆混煉機</div>
+              <div class="eq-model">Xplore Instruments MC 15 HT</div>
+              <div class="eq-desc">
+                荷蘭 Xplore 製高端微量雙螺杆混煉機，以 15 mL 的極小樣品量即可完成複合固態電解質、聚合物電極或高分子複合材料的高均勻度混煉，特別適合珍貴材料的研發開發階段。
+              </div>
+              <ul class="eq-specs">
+                <li>最小樣品量僅 15 mL，節省珍貴材料</li>
+                <li>扭力高達 43 Nm，可處理高黏度材料</li>
+                <li>最高操作溫度 450°C，三段加熱區控制</li>
+                <li>轉速範圍 1–500 rpm，Vari-Batch™ 可變容積設計</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FALCO 靜電紡絲 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-fab">
+              <span class="eq-icon">🧵</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">對紡型靜電紡絲設備</div>
+              <div class="eq-model">FALCO（Falco Tech Enterprise）</div>
+              <div class="eq-desc">
+                台灣製對紡型（針對針）靜電紡絲機，專用於製備 PAA（聚醯胺酸）、PI（聚醯亞胺）等高性能奈米纖維隔膜。對紡設計產生均一的電場分佈，纖維直徑與膜厚可精確控制。
+              </div>
+              <ul class="eq-specs">
+                <li>對紡設計，電場均勻，纖維均一性佳</li>
+                <li>操作電壓 15–30 kV，進料速率 0.1–0.8 mL/h</li>
+                <li>製備 PAA/PI 隔膜，耐高溫且具高機械強度</li>
+                <li>所製隔膜可提升電池熱穩定性與安全性</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mbraun 手套箱 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner bg-fab">
+              <span class="eq-icon">🧤</span>
+              <span class="flagship-badge">★ 旗艦</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">手套箱工作站（串接 6 座）</div>
+              <div class="eq-model">M. Braun Inert Gas Systems</div>
+              <div class="eq-desc">
+                德國 M. Braun 手套箱系統，6 座串聯形成大型惰性氣體（Ar）封閉工作空間，供鋰/鈉金屬電池組裝、硫化物固態電解質合成與處理使用，嚴格排除水氧對材料的干擾。
+              </div>
+              <ul class="eq-specs">
+                <li>H₂O 與 O₂ 控制低於 0.1 ppm</li>
+                <li>6 座手套箱串聯，工作空間寬敞</li>
+                <li>內建循環純化系統，持續維持惰性環境</li>
+                <li>適用於金屬鋰負極、固態電解質組裝全流程</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. 特殊設施 -->
+    <section class="mb-2">
+      <div class="category-header">
+        <div class="category-icon" style="background:#e3f2fd;">🏢</div>
+        <div>
+          <h3>特殊設施</h3>
+          <p>電池量產製程環境控制核心場域</p>
+        </div>
+      </div>
+
+      <div class="dry-room-card">
+        <div class="dry-room-banner">
+          <div class="row align-items-center g-4">
+            <div class="col-md-1 text-center" style="font-size:3rem;">🏭</div>
+            <div class="col-md-8">
+              <div class="page-badge" style="margin-bottom:.6rem;">特殊設施</div>
+              <h4 class="fw-bold mb-2">乾燥室（Dry Room）</h4>
+              <p class="mb-0" style="opacity:.9; font-size:.9rem; line-height:1.7;">
+                SEED 中心設置於國際大樓 IB1202 的大型低濕度工作環境，露點可控制至 <strong>−75°C 以下</strong>，是鈕扣電池、軟包電池及硫化物固態電池大量製作的核心場域，同時作為學生習知工廠化電池製造流程的實習空間。
+              </p>
+            </div>
+            <div class="col-md-3">
+              <div class="row g-2 text-center">
+                <div class="col-6">
+                  <div style="font-size:1.4rem; font-weight:700; color:#7ef0e6;">−75°C</div>
+                  <div style="font-size:.7rem; opacity:.7;">最低露點</div>
+                </div>
+                <div class="col-6">
+                  <div style="font-size:1.4rem; font-weight:700; color:#7ef0e6;">IB1202</div>
+                  <div style="font-size:.7rem; opacity:.7;">設置位置</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4" style="background:#f8f9fb;">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span style="color:var(--teal); font-weight:700; flex-shrink:0;">▸</span>
+                <span style="font-size:.83rem; color:#555;">配置除溼輪系統（海魄科技），持續維持超低濕度環境</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span style="color:var(--teal); font-weight:700; flex-shrink:0;">▸</span>
+                <span style="font-size:.83rem; color:#555;">整合多座手套箱，形成電池組裝完整操作鏈</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span style="color:var(--teal); font-weight:700; flex-shrink:0;">▸</span>
+                <span style="font-size:.83rem; color:#555;">涵蓋正/負極塗敷、滾壓、成型、電解液注液及封裝全製程</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<section style="background:var(--navy); padding:48px 0; text-align:center; color:#fff;">
+  <div class="container">
+    <h4 class="fw-bold mb-2">有興趣合作使用設備？</h4>
+    <p style="opacity:.8; font-size:.9rem; margin-bottom:1.5rem;">SEED 中心歡迎學術與產業界合作，請聯絡我們了解設備使用規範。</p>
+    <a href="contact.html" class="btn btn-teal px-4">聯絡 SEED 中心</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="py-4" style="background:#111827; color:rgba(255,255,255,.55); font-size:.82rem; text-align:center;">
+  <div class="container">
+    © 2025 SEED Center, National Taiwan University of Science and Technology. All rights reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
