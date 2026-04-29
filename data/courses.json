@@ -1,0 +1,61 @@
+[
+  {
+    "id": "battery",
+    "title": "Battery Technology",
+    "icon": "battery-charging",
+    "color": "badge-battery",
+    "accentColor": "#1b3a6b",
+    "bgColor": "#e3f0fb",
+    "units": 8,
+    "status": "In Planning",
+    "description": "From materials design to full-cell assembly — a systematic guide to next-generation solid-state battery core knowledge.",
+    "topics": [
+      "Fundamentals of Li/Na-ion batteries",
+      "Solid electrolyte classification and synthesis",
+      "Li metal anode interface engineering",
+      "Anode-free cell architecture",
+      "Cathode materials (NMC, LFP, sulfur)",
+      "Electrochemical impedance spectroscopy (EIS)",
+      "Full-cell assembly and testing",
+      "Battery safety and thermal management"
+    ]
+  },
+  {
+    "id": "membrane",
+    "title": "Membrane Engineering",
+    "icon": "layers",
+    "color": "badge-membrane",
+    "accentColor": "#1a6640",
+    "bgColor": "#e8f8f0",
+    "units": 6,
+    "status": "In Planning",
+    "description": "Explore nanomembrane fabrication techniques and ion transport mechanisms across energy, desalination, and biomedical applications.",
+    "topics": [
+      "Membrane fundamentals (polymer / inorganic / composite)",
+      "Electrospinning technology (PAA, PI)",
+      "Nanofluidics and ion-selective transport",
+      "Desalination membrane design",
+      "Piezoelectric membranes and energy harvesting",
+      "MOF/COF-based membranes"
+    ]
+  },
+  {
+    "id": "hydrogen",
+    "title": "Hydrogen Energy Systems",
+    "icon": "zap",
+    "color": "badge-hydrogen",
+    "accentColor": "#8a5a00",
+    "bgColor": "#fdf3e3",
+    "units": 6,
+    "status": "In Planning",
+    "description": "Decode the complete hydrogen value chain from production and storage to conversion — mastering key technologies for clean energy transition.",
+    "topics": [
+      "Hydrogen energy overview and energy policy",
+      "HER electrocatalyst design",
+      "OER mechanistic analysis",
+      "CO₂ reduction electrocatalysis",
+      "Fuel cell electrode materials",
+      "Hydrogen storage technologies"
+    ]
+  }
+]

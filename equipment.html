@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Equipment — SEED Center</title>
+<meta name="description" content="SEED Center's flagship research instruments covering battery safety thermal analysis, in-situ electrochemical characterization, materials microstructure analysis, and advanced fabrication systems.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #1b3a6b 0%, #0a4a6e 50%, #006d61 100%);
+    color: #fff; padding: 64px 0 48px;
+  }
+  .page-hero h1 { font-size: 2rem; font-weight: 800; }
+  .page-hero .lead { opacity: .88; font-size: .95rem; line-height: 1.8; max-width: 600px; }
+  .page-badge {
+    display: inline-block; background: rgba(255,255,255,.2); color: #fff;
+    font-size: .75rem; font-weight: 600; letter-spacing: .08em;
+    padding: 3px 12px; border-radius: 20px; margin-bottom: .9rem;
+    border: 1px solid rgba(255,255,255,.3);
+  }
+  .category-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.5rem; padding-bottom: .7rem;
+    border-bottom: 2px solid var(--teal);
+  }
+  .category-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .category-header h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin: 0; }
+  .category-header p { font-size: .8rem; color: var(--gray); margin: 0; }
+  .eq-card {
+    border: none; border-radius: 14px; height: 100%;
+    box-shadow: 0 3px 16px rgba(0,0,0,.08);
+    transition: transform .22s, box-shadow .22s; overflow: hidden;
+  }
+  .eq-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
+  .eq-banner {
+    height: 160px; display: flex; align-items: center;
+    justify-content: center; position: relative; overflow: hidden;
+  }
+  .eq-banner .eq-icon { font-size: 2.6rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,.25)); }
+  .eq-banner.has-photo { background-size: cover; background-position: center; }
+  .eq-banner.has-photo::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.08) 0%, rgba(0,0,0,.4) 100%);
+  }
+  .eq-banner .flagship-badge {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.4);
+    color: #fff; font-size: .65rem; font-weight: 700; letter-spacing: .06em;
+    padding: 2px 8px; border-radius: 3px;
+  }
+  .eq-card .card-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .eq-card .eq-name { font-size: .92rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; line-height: 1.4; }
+  .eq-card .eq-model { font-size: .75rem; color: var(--teal); font-weight: 600; margin-bottom: .6rem; font-family: 'Courier New', monospace; }
+  .eq-card .eq-desc { font-size: .81rem; color: #555; line-height: 1.65; margin-bottom: .8rem; }
+  .eq-card .eq-specs { list-style: none; padding: 0; margin: 0; }
+  .eq-card .eq-specs li {
+    font-size: .76rem; color: var(--gray); padding: 3px 0;
+    border-bottom: 1px solid #f0f0f0; display: flex; gap: 6px; align-items: flex-start;
+  }
+  .eq-card .eq-specs li:last-child { border-bottom: none; }
+  .eq-card .eq-specs li::before { content: '▸'; color: var(--teal); flex-shrink: 0; margin-top: 1px; }
+  .stats-strip { background: var(--navy); color: #fff; padding: 22px 0; }
+  .stat-item { text-align: center; }
+  .stat-item .num { font-size: 1.8rem; font-weight: 700; color: var(--teal); }
+  .stat-item .lbl { font-size: .72rem; opacity: .7; text-transform: uppercase; letter-spacing: .05em; }
+  .dry-room-card {
+    border: none; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 3px 16px rgba(0,0,0,.08);
+    transition: transform .22s, box-shadow .22s;
+  }
+  .dry-room-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.14); }
+  .dry-room-banner {
+    background: linear-gradient(135deg, #1b3a6b 0%, #2c5282 50%, #00a896 100%);
+    padding: 28px 32px; color: #fff;
+  }
+  .bg-safety   { background: linear-gradient(135deg, #c0392b 0%, #8e1a0e 100%); }
+  .bg-optical  { background: linear-gradient(135deg, #1a6640 0%, #00a896 100%); }
+  .bg-micro    { background: linear-gradient(135deg, #1b3a6b 0%, #0a4a6e 100%); }
+  .bg-fab      { background: linear-gradient(135deg, #6d4c41 0%, #3e2723 100%); }
+  .bg-surface  { background: linear-gradient(135deg, #4a148c 0%, #1b3a6b 100%); }
+</style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/images/logo.png" alt="SEED Center">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link active" href="equipment.html" style="color:var(--teal) !important; font-weight:600;">Equipment</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="international.html">International</a></li>
+        <li class="nav-item"><a class="nav-link" href="academy/index.html">☁ Academy</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link lang-btn" href="zh/equipment.html">中文</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-badge">🔬 Core Research Equipment</div>
+    <h1>Flagship Research Equipment</h1>
+    <p class="lead">SEED Center hosts state-of-the-art research instruments covering battery safety thermal analysis, in-situ electrochemical characterization, materials microstructure analysis, and advanced fabrication systems — enabling world-class electrochemical energy research.</p>
+  </div>
+</section>
+
+<!-- ── Stats Strip ── -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-4 stat-item"><div class="num">12+</div><div class="lbl">Flagship Instruments</div></div>
+      <div class="col-4 stat-item"><div class="num">4</div><div class="lbl">Research Domains</div></div>
+      <div class="col-4 stat-item"><div class="num">6</div><div class="lbl">Glovebox Workstations</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main Content ── -->
+<div class="py-5">
+  <div class="container">
+
+    <!-- 1. Battery Safety & Thermal Analysis -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#fde8e6;">🔥</div>
+        <div>
+          <h3>Battery Safety &amp; Thermal Analysis</h3>
+          <p>Thermal runaway detection, microcalorimetry, and thermophysical characterization</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/tht-ev-arc.jpg');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Battery Thermal Runaway Monitoring System</div>
+              <div class="eq-model">THT EV+ARC</div>
+              <div class="eq-desc">World-class EV battery safety testing instrument using Accelerating Rate Calorimetry (ARC) to precisely simulate thermal runaway onset conditions and propagation behavior, quantifying battery thermal stability and safety margins.</div>
+              <ul class="eq-specs">
+                <li>Sensitivity 0.05 °C/min — detects weak self-heating onset</li>
+                <li>Pressure range 0–200 bar, resolution 0.005 bar</li>
+                <li>Compliant with SAE J2464, USABC/FreedomCAR, UN/UL standards</li>
+                <li>Applicable from cell to module scale testing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/ta-tam-iv.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Multi-Channel Isothermal Calorimeter</div>
+              <div class="eq-model">TA Instruments TAM IV</div>
+              <div class="eq-desc">High-precision 8-channel isothermal calorimeter capable of simultaneously measuring µW-level heat flow, enabling long-term monitoring of battery aging rates, self-discharge heat generation, and solid electrolyte synthesis thermodynamics.</div>
+              <ul class="eq-specs">
+                <li>Temperature control precision ±0.0001 °C (patented thermostatic bath)</li>
+                <li>Up to 8 independent channels measured simultaneously</li>
+                <li>Detection limit at µW-level heat flow</li>
+                <li>Three modes: isothermal, step-isothermal, temperature scanning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/ta-dsc-2500.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">High-Performance Modulated DSC</div>
+              <div class="eq-model">TA Discovery DSC 2500</div>
+              <div class="eq-desc">High-sensitivity Modulated DSC (MDSC) separating reversible and non-reversible thermal events, widely used for glass transition, melting, and crystallization analysis of solid electrolytes, electrode materials, and polymer separators.</div>
+              <ul class="eq-specs">
+                <li>Temperature range −90 °C to 550 °C</li>
+                <li>MDSC separates complex overlapping thermal events</li>
+                <li>Tzero® technology ensures baseline stability and high sensitivity</li>
+                <li>Compatible with RCS cooling accessory for sub-ambient measurements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. In-Situ Electrochemical Characterization & Gas Analysis -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#e6f5ee;">🔭</div>
+        <div>
+          <h3>In-Situ Electrochemical Characterization &amp; Gas Analysis</h3>
+          <p>Real-time reaction visualization and off-gas monitoring during charge/discharge</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/lasertec-eccs-b320.jpg');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">In-Situ Electrochemical Confocal Visualization System</div>
+              <div class="eq-model">Lasertec ECCS B320</div>
+              <div class="eq-desc">A globally rare in-situ electrochemical confocal microscopy system enabling real-time, high-resolution observation of electrode surface reactions, dendrite growth, and active material volume expansion during battery cycling — a core tool for failure mechanism studies.</div>
+              <ul class="eq-specs">
+                <li>True-color confocal optics eliminate electrolyte interface interference</li>
+                <li>Quantifies electrode thickness changes and active material distribution</li>
+                <li>Tracks graphite anode state-of-charge color shifts in real time</li>
+                <li>Integrated potentiostat for synchronized current/voltage recording</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/nanobase-xperra-s.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Fast Scanning Confocal Raman Microscope</div>
+              <div class="eq-model">Nanobase XperRAM-S</div>
+              <div class="eq-desc">High-performance multi-laser confocal Raman microscope supporting rapid 2D area scanning for non-destructive chemical structure and phase distribution analysis of battery electrodes and solid electrolytes at nano-to-micro scale.</div>
+              <ul class="eq-specs">
+                <li>Multiple laser wavelengths (405–1064 nm) for diverse material systems</li>
+                <li>Fast 2D area scanning (200×200 µm)</li>
+                <li>Multiple gratings (300–2400 lpmm) with switchable high-resolution mode</li>
+                <li>Supports photoluminescence (PL) and electroluminescence (EL) measurements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/shimadzu-gcms.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">GC-MS Battery Off-Gas Analysis Platform</div>
+              <div class="eq-model">Shimadzu GC-MS</div>
+              <div class="eq-desc">Integrated GC-MS platform for precise identification of trace gases evolved during battery charging, over-charge, or thermal runaway events (CO₂, CO, H₂, hydrocarbons) — a critical tool for electrolyte decomposition mechanism and battery safety studies.</div>
+              <ul class="eq-specs">
+                <li>GC-MS coupling provides both separation (GC) and identification (MS)</li>
+                <li>Detects trace gases at ppm to ppb concentration levels</li>
+                <li>Integrated with electrochemical workstation for in-situ gas analysis</li>
+                <li>Used for electrolyte decomposition and solid electrolyte interphase research</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Materials Microstructure & Surface Analysis -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#ebe8f5;">🧲</div>
+        <div>
+          <h3>Materials Microstructure &amp; Surface Analysis</h3>
+          <p>Nanoscale morphology, elemental composition, surface area and pore size characterization</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/jeol-jsm-it200.jpg');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Scanning Electron Microscope with EDS</div>
+              <div class="eq-model">JEOL JSM-IT200 + EDS</div>
+              <div class="eq-desc">High-resolution SEM integrated with Energy Dispersive X-ray Spectroscopy (EDS) for simultaneous nanoscale morphology and elemental mapping of electrodes, solid electrolytes, and separators, supporting both high-vacuum and low-vacuum (non-conductive) modes.</div>
+              <ul class="eq-specs">
+                <li>Resolution better than 10 nm (high-vacuum mode, 30 kV)</li>
+                <li>Accelerating voltage 0.5–30 kV adjustable</li>
+                <li>EDS real-time point analysis, line scan, and elemental mapping</li>
+                <li>Low-vacuum mode for uncoated non-conductive specimens</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/micromeritics-autochem.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Chemisorption Analyzer</div>
+              <div class="eq-model">Micromeritics AutoChem 2920</div>
+              <div class="eq-desc">Fully automated temperature-programmed chemisorption analyzer for measuring active site counts, metal dispersion, and acid/base properties of electrocatalysts via TPR/TPO/TPD experiments — providing key data for HER/OER catalyst development.</div>
+              <ul class="eq-specs">
+                <li>Supports TPR (Temperature-Programmed Reduction), TPO, and TPD</li>
+                <li>Measures metal dispersion and active surface area</li>
+                <li>High-precision TCD detector with high sensitivity</li>
+                <li>Fully automated for continuous multi-sample operation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/micromeritics-asap-bet.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Automated BET Surface Area &amp; Pore Size Analyzer</div>
+              <div class="eq-model">Micromeritics ASAP 2020</div>
+              <div class="eq-desc">Industry-standard BET surface area and pore size distribution system using nitrogen physisorption isotherms to precisely measure surface area, pore size distribution, and pore volume of electrode materials, solid electrolytes, and porous structures.</div>
+              <ul class="eq-specs">
+                <li>Pore size analysis range 3.5 Å–5000 Å (mesopore to macropore)</li>
+                <li>High-precision N₂ adsorption, surface area accuracy better than ±1.5%</li>
+                <li>Supports multi-point BET and BJH pore size distribution analysis</li>
+                <li>Dual sample preparation stations for improved throughput</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Materials Fabrication & Battery Assembly -->
+    <section class="mb-5">
+      <div class="category-header">
+        <div class="category-icon" style="background:#fdf3e7;">🏗️</div>
+        <div>
+          <h3>Materials Fabrication &amp; Battery Assembly</h3>
+          <p>From composite compounding and thin film preparation to inert-environment battery assembly</p>
+        </div>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/xplore-mc15ht.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Micro High-Torque Twin-Screw Compounder</div>
+              <div class="eq-model">Xplore Instruments MC 15 HT</div>
+              <div class="eq-desc">Dutch-made high-end micro twin-screw compounder achieving homogeneous compounding of composite solid electrolytes, polymer electrodes, or polymer composites with as little as 15 mL sample volume — ideal for early-stage R&amp;D with precious materials.</div>
+              <ul class="eq-specs">
+                <li>Minimum sample volume of just 15 mL, conserving precious materials</li>
+                <li>High torque up to 43 Nm for high-viscosity materials</li>
+                <li>Maximum operating temperature 450 °C with three heating zones</li>
+                <li>Speed range 1–500 rpm; Vari-Batch™ variable volume design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/falco-electrospinning.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Face-to-Face Electrospinning System</div>
+              <div class="eq-model">FALCO (Falco Tech Enterprise)</div>
+              <div class="eq-desc">Taiwan-made needle-to-needle electrospinning machine dedicated to fabricating PAA (polyamic acid) and PI (polyimide) high-performance nanofiber separators. The face-to-face design generates a uniform electric field for precise control of fiber diameter and membrane thickness.</div>
+              <ul class="eq-specs">
+                <li>Face-to-face design with uniform electric field and consistent fiber quality</li>
+                <li>Operating voltage 15–30 kV; feed rate 0.1–0.8 mL/h</li>
+                <li>Produces PAA/PI separators with high thermal stability and mechanical strength</li>
+                <li>Separators enhance battery thermal stability and safety performance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="eq-card card">
+            <div class="eq-banner has-photo" style="background-image:url('assets/images/equipment/mbraun-glovebox-6unit.png');">
+              <span class="flagship-badge">★ Flagship</span>
+            </div>
+            <div class="card-body">
+              <div class="eq-name">Glovebox Workstation System (6-Unit Cluster)</div>
+              <div class="eq-model">M. Braun Inert Gas Systems</div>
+              <div class="eq-desc">German M. Braun glovebox system with 6 interconnected units forming a large inert gas (Ar) enclosed workspace for Li/Na metal battery assembly, sulfide solid electrolyte synthesis, and processing — rigorously excluding moisture and oxygen contamination.</div>
+              <ul class="eq-specs">
+                <li>H₂O and O₂ controlled below 0.1 ppm</li>
+                <li>6 interconnected gloveboxes for spacious working environment</li>
+                <li>Integrated recirculation purification system for continuous inert atmosphere</li>
+                <li>Covers full workflow: metal Li anodes, solid electrolyte assembly</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. Special Facilities -->
+    <section class="mb-2">
+      <div class="category-header">
+        <div class="category-icon" style="background:#e3f2fd;">🏢</div>
+        <div>
+          <h3>Special Facilities</h3>
+          <p>Core controlled-environment facility for battery manufacturing processes</p>
+        </div>
+      </div>
+
+      <div class="dry-room-card">
+        <div class="dry-room-banner" style="background-image:url('assets/images/equipment/dry-room-interior.jpg'); background-size:cover; background-position:center; position:relative;">
+          <div style="position:absolute;inset:0;background:rgba(15,30,60,.72);border-radius:0;"></div>
+          <div style="position:relative;z-index:1;">
+          <div class="row align-items-center g-4">
+            <div class="col-md-1 text-center" style="font-size:3rem;">🏭</div>
+            <div class="col-md-8">
+              <div class="page-badge" style="margin-bottom:.6rem;">Special Facility</div>
+              <h4 class="fw-bold mb-2">Dry Room (Low-Humidity Facility)</h4>
+              <p class="mb-0" style="opacity:.9; font-size:.9rem; line-height:1.7;">
+                SEED Center's large-scale low-humidity workspace located in IB1202, with dew point controllable to <strong>below −75 °C</strong>. It serves as the core facility for batch fabrication of coin cells, pouch cells, and sulfide solid-state batteries, and as a training space for students to learn industrial battery manufacturing processes.
+              </p>
+            </div>
+            <div class="col-md-3">
+              <div class="row g-2 text-center">
+                <div class="col-6">
+                  <div style="font-size:1.4rem; font-weight:700; color:#7ef0e6;">−75°C</div>
+                  <div style="font-size:.7rem; opacity:.7;">Min. Dew Point</div>
+                </div>
+                <div class="col-6">
+                  <div style="font-size:1.4rem; font-weight:700; color:#7ef0e6;">IB1202</div>
+                  <div style="font-size:.7rem; opacity:.7;">Location</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="p-4" style="background:#f8f9fb;">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span style="color:var(--teal); font-weight:700; flex-shrink:0;">▸</span>
+                <span style="font-size:.83rem; color:#555;">Equipped with desiccant wheel dehumidification system for continuous ultra-low humidity maintenance</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span style="color:var(--teal); font-weight:700; flex-shrink:0;">▸</span>
+                <span style="font-size:.83rem; color:#555;">Integrated with multiple gloveboxes forming a complete battery assembly operation chain</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span style="color:var(--teal); font-weight:700; flex-shrink:0;">▸</span>
+                <span style="font-size:.83rem; color:#555;">Full process coverage: electrode coating, calendering, forming, electrolyte filling, and encapsulation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<section style="background:var(--navy); padding:48px 0; text-align:center; color:#fff;">
+  <div class="container">
+    <h4 class="fw-bold mb-2">Interested in Equipment Access or Collaboration?</h4>
+    <p style="opacity:.8; font-size:.9rem; margin-bottom:1.5rem;">SEED Center welcomes academic and industry collaborations. Contact us to learn about equipment access policies.</p>
+    <a href="contact.html" class="btn btn-teal px-4">Contact SEED Center</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="py-4" style="background:#111827; color:rgba(255,255,255,.55); font-size:.82rem; text-align:center;">
+  <div class="container">
+    © 2025 SEED Center, National Taiwan University of Science and Technology. All rights reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
